@@ -1,17 +1,22 @@
-db.collection('users').get()
-  .then((snapshot) => {
-    snapshot.forEach((doc) => {
-      console.log(doc.id, '=>', doc.data());
-    });
-  })
-  .catch((err) => {
-    console.log('Error getting documents', err);
-  });
+const db = require('./index.js')
 
+const ordersRef = db.collection('orders');
 
-let setAlan = aTuringRef.set({
-  'first': 'Alan',
-  'middle': 'Mathison',
-  'last': 'Turing',
-  'born': 1912
-});
+const getOrders = () => {
+  // return ordersRef.get();
+  return ordersRef.doc('x3oLqJYP1BHWEByFrjIT').get();
+}
+
+// const getUser = (email) => {
+//   return usersRef.where('email', '==', email).get();
+// }
+
+// const postUser = (email, name) => {
+//   return usersRef.doc(email).set({name});
+// }
+module.exports = { getOrders };
+
+// .doc('SF').collection('landmarks').doc().set({
+//   name: 'Golden Gate Bridge',
+//   type: 'bridge'
+// }),
