@@ -1,32 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>lens.ly</title>
+
 </head>
 
 <body>
-    <pre id="object">
+    <div id="app">
+        <h2>lens.ly</h2>
 
-    </pre>
+        <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
-    <script src="../src/index.js" type="module"></script>
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="/__/firebase/7.5.2/firebase-app.js"></script>
 
-    <div class="app">
-        <p>Create a new article</p>
-    </div>
-    <script type="text/javascript" src="main.js"></script>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="/__/firebase/7.5.0/firebase-app.js"></script>
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="/__/firebase/7.5.2/firebase-analytics.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-    https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="/__/firebase/7.5.0/firebase-auth.js"></script>
-    <script src="/__/firebase/7.5.0/firebase-firestore.js"></script>
-    <!-- Initialize Firebase -->
-    <script src="/__/firebase/init.js"></script>
-    <script src='bundle.js'></script>
+        <!-- Add Firebase products that you want to use -->
+        <script src="/__/firebase/7.5.2/firebase-auth.js"></script>
+        <script src="/__/firebase/7.5.2/firebase-firestore.js"></script>
+        <script src="/__/firebase/init.js"></script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyAq0eSj9qWghaUmVUAgsrAnUP3Nl2fpRYE",
+                authDomain: "robertson-optometry.firebaseapp.com",
+                databaseURL: "https://robertson-optometry.firebaseio.com",
+                projectId: "robertson-optometry",
+                storageBucket: "robertson-optometry.appspot.com",
+                messagingSenderId: "720347680157",
+                appId: "1:720347680157:web:5b93c9bede03cf2d83f374"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+        </script>
 </body>
 
 </html>
