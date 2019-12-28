@@ -1,14 +1,15 @@
-function orders(state = [], action) {
+function RX(state = [], action) {
   switch (action.type) {
-    case 'ADD_ORDER':
-      // return the new state with the new ORDER
+    case 'SAVE_RX':
+      // return the new state with the new comment
       return [...state, {
-        dateOrdered: action.dateOrdered,
-        orderId: action.orderID,
-        orderStatus: action.orderStatus,
-        totalCost: action.totalCost
+        OD: action.OD, 
+        OS: action.OS, 
+        PD: action.PD,
+        RXname: action.RXname,
+        add: action.add
       }];
-    case 'REMOVE_ORDER':
+    case 'REMOVE_RX':
       // we need to return the new state without the deleted comment
       return [
         // from the start to the one we want to delete
@@ -21,16 +22,16 @@ function orders(state = [], action) {
   }
 }
 
-// function orders(state = [], action) {
-//   if (typeof action.postId !== 'undefined') {
+// function RX(state = [], action) {
+//   if (typeof action.RXname !== 'undefined') {
 //     return {
 //       // take the current state
 //       ...state,
 //       // overwrite this post with a new one
-//       [action.postId]: postOrder(state[action.postId], action)
+//       [action.postId]: addOrder(state[action.postId], action)
 //     }
 //   }
 //   return state;
 // }
 
-export default orders;
+export default RX;

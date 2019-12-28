@@ -11,8 +11,16 @@ export function addOrder(userId, OD, OS, PD, RXname, add) {
     add
   }
 }
+export function removeOrder(userId, orderId, i) {
+  return {
+    type: "REMOVE_ORDER",
+    userId,
+    orderId,
+    i
+  }
+}
 
-export function addRX(userId, OD, OS, PD, RXname, add) {
+export function saveRX(userId, OD, OS, PD, RXname, add) {
   return {
     type: "SAVE_RX",
     userId,

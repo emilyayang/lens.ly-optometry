@@ -16,11 +16,9 @@ admin.initializeApp({
 const firestore = admin.firestore();
 
 app.use(cors);
-
 exports.api = functions.https.onRequest(app);
-
 app.get('/users/:userId', (req, res) => {
-  var docRef = firestore.collection("users").doc(req.params.userId);
+  let docRef = firestore.collection("users").doc(req.params.userId);
 
   // See https://firebase.google.com/docs/firestore/query-data/get-data#get_a_document
   docRef.get().then((doc) => {
@@ -35,7 +33,7 @@ app.get('/users/:userId', (req, res) => {
 });
 
 app.get('/orders/:orderId', (req, res) => {
-  var docRef = firestore.collection("orders").doc(req.params.orderId);
+  let docRef = firestore.collection("orders").doc(req.params.orderId);
   docRef.get().then((doc) => {
     if (doc.exists) {
       return res.status(200).json(doc.data());

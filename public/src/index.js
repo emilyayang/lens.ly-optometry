@@ -1,28 +1,33 @@
-// import * as firebase from 'firebase/app';
-// import firebaseConfig from '../../firebase.js'
-// import 'firebase/auth';
+import React from 'react';
+import { render } from 'react-dom';
+import css from './styles/app.css';
+import App from './components/App.js'
+import Order from './components/Order.js'
+// import Main from './components/Main.js'
+import TopHeader from './components/TopHeader.js'
 
-// firebase.initializeApp(firebaseConfig);
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+//need to bind redux with react with this
+import { Provider } from 'react-redux';
+//store is export default, history is named
+import { store, history } from './Store.js';
 
-// export const auth = firebase.auth
+//allows push state changes without reloading page
+//nest index route since it is changing
 
-// export default firebase;
+//main and order routes need to be inside main route
+//provider exposes our store to our app 
+const router = (
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path='/' component={App}>
+        <IndexRoute component={TopHeader}></IndexRoute>
+        <Route path='/order#' component={Order}></Route>
+        {/* <Route path='/orders/:orderId' component={Order}></Route> */}
+      </Route>
+    </Router>
+  </Provider>
+)
 
-
-// (function () {
-
-//   // Initialize Firebase
-//   firebase.initializeApp(firebaseConfig);
-
-//   //get elements
-//   const preObject = document.getElementById('object');
-//   //create references
-//   const dbRefObject = firebase.database().ref().child('object');
-//   //sync object changes
-//   dbRefObject.on('value', snap => {
-//     preObject.innerText = JSON.stringify(snap.val(), null, 3);
-
-//   });
-
-// }());
-
+render(<App />, document.getElementById('root')) //changed to router!
+// render(router, document.getElementById('root'))

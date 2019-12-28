@@ -1,12 +1,12 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-// import * as actionCreators from '../actions/actionCreators';
-import TopHeader from './TopHeader';
+import * as actionCreators from '../actions/actionCreators.js';
+import TopHeader from './TopHeader.js';
 
 function mapStateToProps(state) {
   return {
-    posts: state.posts,
-    comments: state.comments
+    orders: state.orders,
+    RX: state.RX
   }
 }
 
