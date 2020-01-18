@@ -1,4 +1,4 @@
-function RX(state = [], action) {
+function RXReducer(state = [], action) {
   switch (action.type) {
     case 'SAVE_RX':
       // return the new state with the new comment
@@ -34,4 +34,4 @@ function RX(state = [], action) {
 //   return state;
 // }
 
-export default RX;
+export default RXReducer;

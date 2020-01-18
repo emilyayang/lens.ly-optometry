@@ -1,4 +1,4 @@
-function orders(state = [], action) {
+function ordersReducer(state = [], action) {
   switch (action.type) {
     case 'ADD_ORDER':
       // return the new state with the new ORDER
@@ -33,4 +33,4 @@ function orders(state = [], action) {
 //   return state;
 // }
 
-export default orders;
+export default ordersReducer;
