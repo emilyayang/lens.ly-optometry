@@ -2,7 +2,12 @@ import React from 'react'
 
 const Home = () => (
   <div>
-    Home
+    <div>
+      New prescription lenses for your own frames
+    </div> 
+    <div>
+      
+    </div> 
   </div>
 )
 
