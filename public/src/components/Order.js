@@ -1,35 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { addOrder, removeOrder } from '../actions/actionCreators.js'
 
-const Order = (props) => (
-  <div>
-    Order: {props.count}
-    <button onClick={props.addOrder}>+</button>
-    <button onClick={props.removeOrder}>-</button>
-  </div>
-)
+const Order = (props) => {
+  return (
+    <div>
+      Order: {props.count}
+      <button onClick={props.addOrder}>+</button>
+      <button onClick={props.removeOrder}>-</button>
+    </div>
+  )
+}
 
 Order.propTypes = {
   userId: PropTypes.string,
-  OD: PropTypes.string,
-  OS: PropTypes.string,
-  PD: PropTypes.number,
+  OD: PropTypes.array,
+  OS: PropTypes.array,
+  PD: PropTypes.array,
   RXname: PropTypes.string,
   add: PropTypes.string,
-  orders: PropTypes.string,
+  lensType: PropTypes.string,
+  lensUsage: PropTypes.string,
+  lensMaterial: PropTypes.string,
+  lensOptions: PropTypes.array,
+  lensUpgrades: PropTypes.array,
+  orders: PropTypes.array,
   addOrder: PropTypes.func.isRequired,
   removeOrder: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => ({
-  orders: state.orders,
-})
-
-const mapDispatchToProps = dispatch => ({
-  addOrder: () => dispatch(addOrder()),
-  removeOrder: () => dispatch(removeOrder()),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Order)
+export default Order
