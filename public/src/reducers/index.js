@@ -1,5 +1,5 @@
-import ordersReducer from './orders.js';
-import RXReducer from './RX.js';
+import ordersReducer from './ordersReducer.js';
+import RXReducer from './RXReducer.js';
 import { combineReducers } from 'redux'
 import { connectRouter } from 'connected-react-router'
 

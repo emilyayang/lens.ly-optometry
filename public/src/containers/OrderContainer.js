@@ -1,6 +1,6 @@
 import Order from '../components/Order.js'
 import { connect } from 'react-redux'
-import { addOrder, removeOrder } from '../actions/actionCreators.js'
+import { addOrder, removeOrder } from '../actions/order.js'
 
 const mapStateToProps = state => ({
   orders: state.orders,

@@ -12,6 +12,7 @@ const Order = (props) => {
 }
 
 Order.propTypes = {
+  orderStep: PropTypes.string,
   userId: PropTypes.string,
   OD: PropTypes.array,
   OS: PropTypes.array,

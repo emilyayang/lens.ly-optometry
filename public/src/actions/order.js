@@ -15,6 +15,7 @@ export function addOrder(userId, OD, OS, PD, RXname, add, lensType, lensUsage, l
     lensUpgrades
   }
 }
+
 export function removeOrder(userId, orderId, i) {
   return {
     type: "REMOVE_ORDER",
