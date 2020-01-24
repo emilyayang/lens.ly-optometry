@@ -1,26 +1,26 @@
-function RXReducer(state = [], action) {
-  switch (action.type) {
-    case 'SAVE_RX':
-      // return the new state with the new comment
-      return [...state, {
-        OD: action.OD, 
-        OS: action.OS, 
-        PD: action.PD,
-        RXname: action.RXname,
-        add: action.add
-      }];
-    case 'REMOVE_RX':
-      // we need to return the new state without the deleted comment
-      return [
-        // from the start to the one we want to delete
-        ...state.slice(0, action.i),
-        // after the deleted one, to the end
-        ...state.slice(action.i + 1)
-      ]
-    default:
-      return state;
-  }
-}
+// function RXReducer(state = [], action) {
+//   switch (action.type) {
+//     case 'SAVE_RX':
+//       // return the new state with the new comment
+//       return [...state, {
+//         OD: action.OD, 
+//         OS: action.OS, 
+//         PD: action.PD,
+//         RXname: action.RXname,
+//         add: action.add
+//       }];
+//     case 'REMOVE_RX':
+//       // we need to return the new state without the deleted comment
+//       return [
+//         // from the start to the one we want to delete
+//         ...state.slice(0, action.i),
+//         // after the deleted one, to the end
+//         ...state.slice(action.i + 1)
+//       ]
+//     default:
+//       return state;
+//   }
+// }
 
 // function RX(state = [], action) {
 //   if (typeof action.RXname !== 'undefined') {
@@ -34,4 +34,4 @@ function RXReducer(state = [], action) {
 //   return state;
 // }
 
-export default RXReducer;
+// export default RXReducer;

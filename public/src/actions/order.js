@@ -1,4 +1,11 @@
 //actions get dispatched but doesn't update state in store need reducer, every reducer will run at every dispatch
+export function changeOrderStep(orderStep) {
+  return {
+    type: "CHANGE_ORDER_STEP",
+    orderStep
+  }
+}
+
 export function addOrder(userId, OD, OS, PD, RXname, add, lensType, lensUsage, lensMaterial, lensOptions, lensUpgrades) {
   return {
     type: "ADD_ORDER",

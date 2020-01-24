@@ -1,11 +1,12 @@
-import ordersReducer from './ordersReducer.js';
-import RXReducer from './RXReducer.js';
+import { orders, orderStep, RX } from './ordersReducer.js';
+// import RX from './RXReducer.js';
 import { combineReducers } from 'redux'
 import { connectRouter } from 'connected-react-router'
 
 const rootReducer = (history) => combineReducers({
-  orders: ordersReducer,
-  RX: RXReducer,
+  orders,
+  orderStep,
+  RX,
   router: connectRouter(history)
 })
 
