@@ -1,4 +1,6 @@
 //actions get dispatched but doesn't update state in store need reducer, every reducer will run at every dispatch
+import axios from "axios";
+
 export function changeOrderStep(orderStep) {
   return {
     type: "CHANGE_ORDER_STEP",
@@ -6,20 +8,35 @@ export function changeOrderStep(orderStep) {
   }
 }
 
+export function postOrder({ userId, OD, OS, PD, RXname, add, lensType, lensUsage, lensMaterial, lensOptions, lensUpgrades }) {
+  return (dispatch) => {
+    return axios.post("http://localhost:5001/robertson-optometry/us-central1/api", { userId, OD, OS, PD, RXname, add, lensType, lensUsage, lensMaterial, lensOptions, lensUpgrades })
+      .then(response => {
+        dispatch(addOrder(response.data))
+      })
+      .catch(error => {
+        console.log("error posting order", error);
+      });
+  };
+};
+
 export function addOrder(userId, OD, OS, PD, RXname, add, lensType, lensUsage, lensMaterial, lensOptions, lensUpgrades) {
   return {
     type: "ADD_ORDER",
-    userId,
-    OD,
-    OS,
-    PD,
-    RXname,
-    add, 
-    lensType, 
-    lensUsage, 
-    lensMaterial, 
-    lensOptions, 
-    lensUpgrades
+    payload: {
+      _id: data._id,
+      userId: data.userId,
+      OD: data.OD,
+      OS: data.OS,
+      PD: data.PD,
+      RXname: data.RXname,
+      add: data.add,
+      lensType: data.lensType,
+      lensUsage: data.lensUsage,
+      lensMaterial: data.lensMaterial,
+      lensOptions: data.lensOptions,
+      lensUpgrades: data.lensUpgrades
+    }
   }
 }
 
@@ -28,27 +45,6 @@ export function removeOrder(userId, orderId, i) {
     type: "REMOVE_ORDER",
     userId,
     orderId,
-    i
-  }
-}
-
-export function saveRX(userId, OD, OS, PD, RXname, add) {
-  return {
-    type: "SAVE_RX",
-    userId,
-    OD,
-    OS,
-    PD,
-    RXname,
-    add
-  }
-}
-
-export function removeRX(userId, RXname, i) {
-  return {
-    type: "REMOVE_RX",
-    userId,
-    RXname,
     i
   }
 }
