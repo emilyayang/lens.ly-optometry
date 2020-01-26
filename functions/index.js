@@ -1,5 +1,3 @@
-// 'use strict';
-
 const functions = require('firebase-functions');
 const express = require('express');
 const app = express();
@@ -19,8 +17,6 @@ app.use(cors);
 exports.api = functions.https.onRequest(app);
 app.get('/users/:userId', (req, res) => {
   let docRef = firestore.collection("users").doc(req.params.userId);
-
-  // See https://firebase.google.com/docs/firestore/query-data/get-data#get_a_document
   docRef.get().then((doc) => {
     if (doc.exists) {
       return res.status(200).json(doc.data());
@@ -40,6 +36,16 @@ app.get('/orders/:orderId', (req, res) => {
     } else {
       return res.status(400).json({ "message": "Order ID not found." });
     }
+  }).catch((error) => {
+    return res.status(400).json({ "message": "Unable to connect to Firestore." });
+  });
+});
+
+app.post('/orders/', (req, res) => {
+  let { userId, OD, OS, PD, RXname, add, lensType, lensUsage, lensMaterial, lensOptions, lensUpgrades } = req.body;
+  let addDoc = firestore.collection("orders").add({ userId, OD, OS, PD, RXname, add, lensType, lensUsage, lensMaterial, lensOptions, lensUpgrades });
+  addDoc.then((doc) => {
+    return res.status(200).json({ "message": "Order posted." });
   }).catch((error) => {
     return res.status(400).json({ "message": "Unable to connect to Firestore." });
   });
