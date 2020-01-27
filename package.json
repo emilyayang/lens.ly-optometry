@@ -25,6 +25,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "connected-react-router": "^6.6.1",
     "cors": "^2.8.5",
@@ -40,6 +41,7 @@
     "react-dom": "^16.12.0",
     "react-hot-loader": "^4.12.18",
     "react-redux": "^7.1.3",
+    "react-redux-form": "^1.16.14",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",

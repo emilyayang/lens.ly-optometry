@@ -2,8 +2,27 @@ import React from 'react'
 
 const Prescription = () => (
   <div>
-    <div>Prescription</div>
+    <div>Add Prescription</div>
+    <div className="lens-option" value={lensUpgrades}>Anti-Reflective Coating
+      <div className="lens-option-description">Corrects one field of vision (near, intermediate, or distance)</div>
+    </div>
+    <div className="lens-option" value={lensUpgrades}>Polish
+      <div className="lens-option-description">Corrects one field of vision (near, intermediate, or distance)</div>
+    </div>
+    <div className="lens-option" value={lensUpgrades}>Roll and Polish
+      <div className="lens-option-description">Corrects one field of vision (near, intermediate, or distance)</div>
+    </div>    
   </div>
 )
+
+LensType.propTypes = {
+  RX: PropTypes.array,
+  OD: PropTypes.array,
+  OS: PropTypes.array,
+  PD: PropTypes.array,
+  RXname: PropTypes.string,
+  add: PropTypes.string,
+
+}
 
 export default Prescription

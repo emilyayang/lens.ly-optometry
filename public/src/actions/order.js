@@ -8,9 +8,9 @@ export function changeOrderStep(orderStep) {
   }
 }
 
-export function postOrder({ userId, OD, OS, PD, RXname, add, lensType, lensUsage, lensMaterial, lensOptions, lensUpgrades }) {
+export function postOrder({ userId, OD, OS, PD, RXname, add, lensType, lensMaterial, lensOptions, lensUpgrades }) {
   return (dispatch) => {
-    return axios.post("http://localhost:5001/robertson-optometry/us-central1/api", { userId, OD, OS, PD, RXname, add, lensType, lensUsage, lensMaterial, lensOptions, lensUpgrades })
+    return axios.post("http://localhost:5001/robertson-optometry/us-central1/api", { userId, OD, OS, PD, RXname, add, lensType, lensMaterial, lensOptions, lensUpgrades })
       .then(response => {
         dispatch(addOrder(response.data))
       })
@@ -20,7 +20,7 @@ export function postOrder({ userId, OD, OS, PD, RXname, add, lensType, lensUsage
   };
 };
 
-export function addOrder(userId, OD, OS, PD, RXname, add, lensType, lensUsage, lensMaterial, lensOptions, lensUpgrades) {
+export function addOrder(data) {
   return {
     type: "ADD_ORDER",
     payload: {
@@ -32,7 +32,6 @@ export function addOrder(userId, OD, OS, PD, RXname, add, lensType, lensUsage, l
       RXname: data.RXname,
       add: data.add,
       lensType: data.lensType,
-      lensUsage: data.lensUsage,
       lensMaterial: data.lensMaterial,
       lensOptions: data.lensOptions,
       lensUpgrades: data.lensUpgrades

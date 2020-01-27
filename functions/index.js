@@ -42,8 +42,8 @@ app.get('/orders/:orderId', (req, res) => {
 });
 
 app.post('/orders/', (req, res) => {
-  let { userId, OD, OS, PD, RXname, add, lensType, lensUsage, lensMaterial, lensOptions, lensUpgrades } = req.body;
-  let addDoc = firestore.collection("orders").add({ userId, OD, OS, PD, RXname, add, lensType, lensUsage, lensMaterial, lensOptions, lensUpgrades });
+  let { userId, OD, OS, PD, RXname, add, lensType, lensMaterial, lensOptions, lensUpgrades } = req.body;
+  let addDoc = firestore.collection("orders").add({ userId, OD, OS, PD, RXname, add, lensType, lensMaterial, lensOptions, lensUpgrades });
   addDoc.then((doc) => {
     return res.status(200).json({ "message": "Order posted." });
   }).catch((error) => {
