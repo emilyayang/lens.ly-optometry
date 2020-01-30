@@ -1,18 +1,82 @@
-// // import css from './styles/app.css';
-
-import { AppContainer } from 'react-hot-loader'
-import { Provider } from 'react-redux'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App.js'
-import configureStore, { history } from './Store.js';
+import { AppContainer } from 'react-hot-loader'
+import { Provider } from 'react-redux'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
+import { ReactReduxFirebaseProvider, firebaseReducer } from 'react-redux-firebase'
+import { createFirestoreInstance, firestoreReducer } from 'redux-firestore'
+import { connectRouter, routerMiddleware } from 'connected-react-router'
+import { createBrowserHistory } from 'history'
+import reduxThunk from "redux-thunk";
+import firebaseConfig from "../../firebaseConfig";
+
+import App from './components/App'
+import authReducer from "./reducers/auth";
+import apiStatusReducer from "./reducers/apiStatus";
+import { orders, orderStep, RX } from './reducers/ordersReducer.js';
+
+const history = createBrowserHistory()
+// react-redux-firebase config
+const rrfConfig = {
+  userProfile: 'users',
+  useFirestoreForProfile: true
+}
+
+firebase.initializeApp(firebaseConfig)
+
+firebase.firestore()
+
+const rootReducer = (history) => combineReducers({
+  firebaseReducer,
+  firestoreReducer,
+  authReducer,
+  apiStatusReducer,
+  orders,
+  orderStep,
+  RX,
+  router: connectRouter(history)
+})
+
+function configureStore(preloadedState) {
+  const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+  const store = createStore(
+    rootReducer(history),
+    preloadedState,
+    composeEnhancer(
+      applyMiddleware(
+        routerMiddleware(history), reduxThunk
+      ),
+    ),
+  )
+
+  if (module.hot) {
+    module.hot.accept('./reducers', () => {
+      store.replaceReducer(rootReducer(history));
+    });
+  }
+
+  return store
+}
 
 const store = configureStore()
+
+const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: store.dispatch,
+  createFirestoreInstance
+}
+
 const render = () => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <App history={history} />
+        <ReactReduxFirebaseProvider {...rrfProps}>
+          <App history={history} />
+        </ReactReduxFirebaseProvider>
       </Provider>
     </AppContainer>,
     document.getElementById('root')
@@ -26,3 +90,5 @@ if (module.hot) {
     render()
   })
 }
+
+export default firebase;
