@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const LensUpgrades = () => (
   <div>
@@ -15,7 +16,7 @@ const LensUpgrades = () => (
   </div>
 )
 
-LensType.propTypes = {
+LensUpgrades.propTypes = {
   lensUpgrades: PropTypes.array,
 }
 

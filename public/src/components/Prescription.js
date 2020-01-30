@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Prescription = () => (
   <div>
@@ -15,7 +16,7 @@ const Prescription = () => (
   </div>
 )
 
-LensType.propTypes = {
+Prescription.propTypes = {
   RX: PropTypes.array,
   OD: PropTypes.array,
   OS: PropTypes.array,

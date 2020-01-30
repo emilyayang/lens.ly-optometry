@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const LensMaterial = ({lensMaterial}) => (
   <div>
@@ -21,7 +22,7 @@ const LensMaterial = ({lensMaterial}) => (
   </div>
 )
 
-LensType.propTypes = {
+LensMaterial.propTypes = {
   lensMaterial: PropTypes.string,
 }
 
