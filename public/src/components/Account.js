@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import requireAuth from "./hoc/requireAuth";
 
-const Account = () => (
-  <div>
-    <div>Account</div>
-  </div>
-)
+const Account = () => {
+  return (
+    <div>
+      Account
+    </div>
+  );
+};
 
-export default Account
+export default requireAuth(Account);
