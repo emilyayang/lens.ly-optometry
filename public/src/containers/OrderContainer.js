@@ -27,7 +27,7 @@ class OrderContainer extends Component {
   //   this.props.dispatch(fetchPostsIfNeeded(nextSubreddit))
   // }
   render() {
-    const { selectedSubreddit, posts, isFetching, lastUpdated } = this.props
+    const { RX, selectedSubreddit, posts, isFetching, lastUpdated } = this.props
     return (
       <div>
         <Order RX={RX} postOrder={this.postOrder}/>
