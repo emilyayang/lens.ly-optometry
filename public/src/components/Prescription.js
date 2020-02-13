@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Prescription = ({ }) => (
+const Prescription = ({ onRXChange }) => (
   <div>
     <div>Add Prescription</div>
     <div className="RX-eye-column-label">
@@ -13,7 +13,7 @@ const Prescription = ({ }) => (
 
     <label className="RX-eye-label">Right Eye (OD)</label>
     <div className="RX-eye-row-select">
-      <select id="ODSPH" defaultValue="PL/0" onChange={}>
+      <select id="ODSPH" defaultValue="PL/0" onChange={onRXChange}>
         <option value="-20.00">-20.00</option>
         <option value="-19.75">-19.75</option>
         <option value="-19.50">-19.50</option>
@@ -162,7 +162,7 @@ const Prescription = ({ }) => (
         <option value="+16.00">+16.00</option>
         <option value="BALANCE">BALANCE</option>
       </select>
-      <select id="ODCLY" defaultValue="PL/0" onChange={}>
+      <select id="ODCLY" defaultValue="PL/0" onChange={onRXChange}>
         <option value="-12.00">-12.00</option>
         <option value="-11.75">-11.75</option>
         <option value="-11.50">-11.50</option>
@@ -262,12 +262,190 @@ const Prescription = ({ }) => (
         <option value="+11.75">+11.75</option>
         <option value="+12.00">+12.00</option>
       </select>
-      <select id="ODAXIS" defaultValue="Blank/0" onChange={}>
+      <select id="ODAXIS" defaultValue="Blank/0" onChange={onRXChange}>
         <option value="Blank/0">Blank/0</option>
         <option value="001">001</option>
         <option value="002">002</option>
+        <option value="003">003</option>
+        <option value="004">004</option>
+        <option value="005">005</option>
+        <option value="006">006</option>
+        <option value="007">007</option>
+        <option value="008">008</option>
+        <option value="009">009</option>
+        <option value="010">010</option>
+        <option value="011">011</option>
+        <option value="012">012</option>
+        <option value="013">013</option>
+        <option value="014">014</option>
+        <option value="015">015</option>
+        <option value="016">016</option>
+        <option value="017">017</option>
+        <option value="018">018</option>
+        <option value="019">019</option>
+        <option value="020">020</option>
+        <option value="021">021</option>
+        <option value="022">022</option>
+        <option value="023">023</option>
+        <option value="024">024</option>
+        <option value="025">025</option>
+        <option value="026">026</option>
+        <option value="027">027</option>
+        <option value="028">028</option>
+        <option value="029">029</option>
+        <option value="030">030</option>
+        <option value="031">031</option>
+        <option value="032">032</option>
+        <option value="033">033</option>
+        <option value="034">034</option>
+        <option value="035">035</option>
+        <option value="036">036</option>
+        <option value="037">037</option>
+        <option value="038">038</option>
+        <option value="039">039</option>
+        <option value="040">040</option>
+        <option value="041">041</option>
+        <option value="042">042</option>
+        <option value="043">043</option>
+        <option value="044">044</option>
+        <option value="045">045</option>
+        <option value="046">046</option>
+        <option value="047">047</option>
+        <option value="048">048</option>
+        <option value="049">049</option>
+        <option value="050">050</option>
+        <option value="051">051</option>
+        <option value="052">052</option>
+        <option value="053">053</option>
+        <option value="054">054</option>
+        <option value="055">055</option>
+        <option value="056">056</option>
+        <option value="057">057</option>
+        <option value="058">058</option>
+        <option value="059">059</option>
+        <option value="060">060</option>
+        <option value="061">061</option>
+        <option value="062">062</option>
+        <option value="063">063</option>
+        <option value="064">064</option>
+        <option value="065">065</option>
+        <option value="066">066</option>
+        <option value="067">067</option>
+        <option value="068">068</option>
+        <option value="069">069</option>
+        <option value="070">070</option>
+        <option value="071">071</option>
+        <option value="072">072</option>
+        <option value="073">073</option>
+        <option value="074">074</option>
+        <option value="075">075</option>
+        <option value="076">076</option>
+        <option value="077">077</option>
+        <option value="078">078</option>
+        <option value="079">079</option>
+        <option value="080">080</option>
+        <option value="081">081</option>
+        <option value="082">082</option>
+        <option value="083">083</option>
+        <option value="084">084</option>
+        <option value="085">085</option>
+        <option value="086">086</option>
+        <option value="087">087</option>
+        <option value="088">088</option>
+        <option value="089">089</option>
+        <option value="090">090</option>
+        <option value="091">091</option>
+        <option value="092">092</option>
+        <option value="093">093</option>
+        <option value="094">094</option>
+        <option value="095">095</option>
+        <option value="096">096</option>
+        <option value="097">097</option>
+        <option value="098">098</option>
+        <option value="099">099</option>
+        <option value="100">100</option>
+        <option value="101">101</option>
+        <option value="102">102</option>
+        <option value="103">103</option>
+        <option value="104">104</option>
+        <option value="105">105</option>
+        <option value="106">106</option>
+        <option value="107">107</option>
+        <option value="108">108</option>
+        <option value="109">109</option>
+        <option value="110">110</option>
+        <option value="111">111</option>
+        <option value="112">112</option>
+        <option value="113">113</option>
+        <option value="114">114</option>
+        <option value="115">115</option>
+        <option value="116">116</option>
+        <option value="117">117</option>
+        <option value="118">118</option>
+        <option value="119">119</option>
+        <option value="120">120</option>
+        <option value="121">121</option>
+        <option value="122">122</option>
+        <option value="123">123</option>
+        <option value="124">124</option>
+        <option value="125">125</option>
+        <option value="126">126</option>
+        <option value="127">127</option>
+        <option value="128">128</option>
+        <option value="129">129</option>
+        <option value="130">130</option>
+        <option value="131">131</option>
+        <option value="132">132</option>
+        <option value="133">133</option>
+        <option value="134">134</option>
+        <option value="135">135</option>
+        <option value="136">136</option>
+        <option value="137">137</option>
+        <option value="138">138</option>
+        <option value="139">139</option>
+        <option value="140">140</option>
+        <option value="141">141</option>
+        <option value="142">142</option>
+        <option value="143">143</option>
+        <option value="144">144</option>
+        <option value="145">145</option>
+        <option value="146">146</option>
+        <option value="147">147</option>
+        <option value="148">148</option>
+        <option value="149">149</option>
+        <option value="150">150</option>
+        <option value="151">151</option>
+        <option value="152">152</option>
+        <option value="153">153</option>
+        <option value="154">154</option>
+        <option value="155">155</option>
+        <option value="156">156</option>
+        <option value="157">157</option>
+        <option value="158">158</option>
+        <option value="159">159</option>
+        <option value="160">160</option>
+        <option value="161">161</option>
+        <option value="162">162</option>
+        <option value="163">163</option>
+        <option value="164">164</option>
+        <option value="165">165</option>
+        <option value="166">166</option>
+        <option value="167">167</option>
+        <option value="168">168</option>
+        <option value="169">169</option>
+        <option value="170">170</option>
+        <option value="171">171</option>
+        <option value="172">172</option>
+        <option value="173">173</option>
+        <option value="174">174</option>
+        <option value="175">175</option>
+        <option value="176">176</option>
+        <option value="177">177</option>
+        <option value="178">178</option>
+        <option value="179">179</option>
+        <option value="180">180</option>
       </select>
-      <select id="ODadd" defaultValue="" onChange={}>
+      <select id="ODadd" defaultValue="" onChange={onRXChange}>
         <option value="0">0</option>
         <option value="+0.25">+0.25</option>
         <option value="+0.50">+0.50</option>
@@ -299,7 +477,7 @@ const Prescription = ({ }) => (
     <label className="RX-eye-label">Left Eye (OS)</label>
 
     <div className="RX-eye-row-select">
-      <select id="OSSPH" defaultValue="PL/0" onChange={}>
+      <select id="OSSPH" defaultValue="PL/0" onChange={onRXChange}>
         <option value="-20.00">-20.00</option>
         <option value="-19.75">-19.75</option>
         <option value="-19.50">-19.50</option>
@@ -448,7 +626,7 @@ const Prescription = ({ }) => (
         <option value="+16.00">+16.00</option>
         <option value="BALANCE">BALANCE</option>
       </select>
-      <select id="OSCLY" defaultValue="PL/0" onChange={}>
+      <select id="OSCLY" defaultValue="PL/0" onChange={onRXChange}>
         <option value="-12.00">-12.00</option>
         <option value="-11.75">-11.75</option>
         <option value="-11.50">-11.50</option>
@@ -548,12 +726,190 @@ const Prescription = ({ }) => (
         <option value="+11.75">+11.75</option>
         <option value="+12.00">+12.00</option>
       </select>
-      <select id="OSAXIS" defaultValue="Blank/0" onChange={}>
+      <select id="OSAXIS" defaultValue="Blank/0" onChange={onRXChange}>
         <option value="Blank/0">Blank/0</option>
         <option value="001">001</option>
         <option value="002">002</option>
+        <option value="003">003</option>
+        <option value="004">004</option>
+        <option value="005">005</option>
+        <option value="006">006</option>
+        <option value="007">007</option>
+        <option value="008">008</option>
+        <option value="009">009</option>
+        <option value="010">010</option>
+        <option value="011">011</option>
+        <option value="012">012</option>
+        <option value="013">013</option>
+        <option value="014">014</option>
+        <option value="015">015</option>
+        <option value="016">016</option>
+        <option value="017">017</option>
+        <option value="018">018</option>
+        <option value="019">019</option>
+        <option value="020">020</option>
+        <option value="021">021</option>
+        <option value="022">022</option>
+        <option value="023">023</option>
+        <option value="024">024</option>
+        <option value="025">025</option>
+        <option value="026">026</option>
+        <option value="027">027</option>
+        <option value="028">028</option>
+        <option value="029">029</option>
+        <option value="030">030</option>
+        <option value="031">031</option>
+        <option value="032">032</option>
+        <option value="033">033</option>
+        <option value="034">034</option>
+        <option value="035">035</option>
+        <option value="036">036</option>
+        <option value="037">037</option>
+        <option value="038">038</option>
+        <option value="039">039</option>
+        <option value="040">040</option>
+        <option value="041">041</option>
+        <option value="042">042</option>
+        <option value="043">043</option>
+        <option value="044">044</option>
+        <option value="045">045</option>
+        <option value="046">046</option>
+        <option value="047">047</option>
+        <option value="048">048</option>
+        <option value="049">049</option>
+        <option value="050">050</option>
+        <option value="051">051</option>
+        <option value="052">052</option>
+        <option value="053">053</option>
+        <option value="054">054</option>
+        <option value="055">055</option>
+        <option value="056">056</option>
+        <option value="057">057</option>
+        <option value="058">058</option>
+        <option value="059">059</option>
+        <option value="060">060</option>
+        <option value="061">061</option>
+        <option value="062">062</option>
+        <option value="063">063</option>
+        <option value="064">064</option>
+        <option value="065">065</option>
+        <option value="066">066</option>
+        <option value="067">067</option>
+        <option value="068">068</option>
+        <option value="069">069</option>
+        <option value="070">070</option>
+        <option value="071">071</option>
+        <option value="072">072</option>
+        <option value="073">073</option>
+        <option value="074">074</option>
+        <option value="075">075</option>
+        <option value="076">076</option>
+        <option value="077">077</option>
+        <option value="078">078</option>
+        <option value="079">079</option>
+        <option value="080">080</option>
+        <option value="081">081</option>
+        <option value="082">082</option>
+        <option value="083">083</option>
+        <option value="084">084</option>
+        <option value="085">085</option>
+        <option value="086">086</option>
+        <option value="087">087</option>
+        <option value="088">088</option>
+        <option value="089">089</option>
+        <option value="090">090</option>
+        <option value="091">091</option>
+        <option value="092">092</option>
+        <option value="093">093</option>
+        <option value="094">094</option>
+        <option value="095">095</option>
+        <option value="096">096</option>
+        <option value="097">097</option>
+        <option value="098">098</option>
+        <option value="099">099</option>
+        <option value="100">100</option>
+        <option value="101">101</option>
+        <option value="102">102</option>
+        <option value="103">103</option>
+        <option value="104">104</option>
+        <option value="105">105</option>
+        <option value="106">106</option>
+        <option value="107">107</option>
+        <option value="108">108</option>
+        <option value="109">109</option>
+        <option value="110">110</option>
+        <option value="111">111</option>
+        <option value="112">112</option>
+        <option value="113">113</option>
+        <option value="114">114</option>
+        <option value="115">115</option>
+        <option value="116">116</option>
+        <option value="117">117</option>
+        <option value="118">118</option>
+        <option value="119">119</option>
+        <option value="120">120</option>
+        <option value="121">121</option>
+        <option value="122">122</option>
+        <option value="123">123</option>
+        <option value="124">124</option>
+        <option value="125">125</option>
+        <option value="126">126</option>
+        <option value="127">127</option>
+        <option value="128">128</option>
+        <option value="129">129</option>
+        <option value="130">130</option>
+        <option value="131">131</option>
+        <option value="132">132</option>
+        <option value="133">133</option>
+        <option value="134">134</option>
+        <option value="135">135</option>
+        <option value="136">136</option>
+        <option value="137">137</option>
+        <option value="138">138</option>
+        <option value="139">139</option>
+        <option value="140">140</option>
+        <option value="141">141</option>
+        <option value="142">142</option>
+        <option value="143">143</option>
+        <option value="144">144</option>
+        <option value="145">145</option>
+        <option value="146">146</option>
+        <option value="147">147</option>
+        <option value="148">148</option>
+        <option value="149">149</option>
+        <option value="150">150</option>
+        <option value="151">151</option>
+        <option value="152">152</option>
+        <option value="153">153</option>
+        <option value="154">154</option>
+        <option value="155">155</option>
+        <option value="156">156</option>
+        <option value="157">157</option>
+        <option value="158">158</option>
+        <option value="159">159</option>
+        <option value="160">160</option>
+        <option value="161">161</option>
+        <option value="162">162</option>
+        <option value="163">163</option>
+        <option value="164">164</option>
+        <option value="165">165</option>
+        <option value="166">166</option>
+        <option value="167">167</option>
+        <option value="168">168</option>
+        <option value="169">169</option>
+        <option value="170">170</option>
+        <option value="171">171</option>
+        <option value="172">172</option>
+        <option value="173">173</option>
+        <option value="174">174</option>
+        <option value="175">175</option>
+        <option value="176">176</option>
+        <option value="177">177</option>
+        <option value="178">178</option>
+        <option value="179">179</option>
+        <option value="180">180</option>
       </select>
-      <select id="OSadd" defaultValue="" onChange={}>
+      <select id="OSadd" defaultValue="" onChange={onRXChange}>
         <option value="0">0</option>
         <option value="+0.25">+0.25</option>
         <option value="+0.50">+0.50</option>
@@ -581,15 +937,145 @@ const Prescription = ({ }) => (
         <option value="+6.00">+6.00</option>
       </select>
     </div>
-  </div>
+
   <div className="RX-eye-PD">
-    <select id="PD" defaultValue="Blank/0" onChange={}>
+    <select id="PD" defaultValue="Blank/0" onChange={onRXChange}>
       <option value="Blank/0">Blank/0</option>
-      <option value="001">001</option>
-      <option value="002">002</option>
+      <option value="49">49</option>
+      <option value="49.5">49.5</option>
+      <option value="50">50</option>
+      <option value="50.5">50.5</option>
+      <option value="51">51</option>
+      <option value="51.5">51.5</option>
+      <option value="52">52</option>
+      <option value="52.5">52.5</option>
+      <option value="53">53</option>
+      <option value="53.5">53.5</option>
+      <option value="54">54</option>
+      <option value="54.5">54.5</option>
+      <option value="55">55</option>
+      <option value="55.5">55.5</option>
+      <option value="56">56</option>
+      <option value="56.5">56.5</option>
+      <option value="57">57</option>
+      <option value="57.5">57.5</option>
+      <option value="58">58</option>
+      <option value="58.5">58.5</option>
+      <option value="59">59</option>
+      <option value="59.5">59.5</option>
+      <option value="60">60</option>
+      <option value="60.5">60.5</option>
+      <option value="61">61</option>
+      <option value="61.5">61.5</option>
+      <option value="62">62</option>
+      <option value="62.5">62.5</option>
+      <option value="63">63</option>
+      <option value="63.5">63.5</option>
+      <option value="64">64</option>
+      <option value="64.5">64.5</option>
+      <option value="65">65</option>
+      <option value="65.5">65.5</option>
+      <option value="66">66</option>
+      <option value="66.5">66.5</option>
+      <option value="67">67</option>
+      <option value="67.5">67.5</option>
+      <option value="68">68</option>
+      <option value="68.5">68.5</option>
+      <option value="69">69</option>
+      <option value="69.5">69.5</option>
+      <option value="70">70</option>
+      <option value="70.5">70.5</option>
+      <option value="71">71</option>
+      <option value="71.5">71.5</option>
+      <option value="72">72</option>
+      <option value="72.5">72.5</option>
+      <option value="73">73</option>
+      <option value="73.5">73.5</option>
+      <option value="74">74</option>
+      <option value="74.5">74.5</option>
+      <option value="75">75</option>
+      <option value="75.5">75.5</option>
+      <option value="76">76</option>
+      <option value="76.5">76.5</option>
+      <option value="77">77</option>
+      <option value="77.5">77.5</option>
+      <option value="78">78</option>
+      <option value="78.5">78.5</option>
+      <option value="79">79</option>
+      <option value="79.5">79.5</option>
+      <option value="80">80</option>
     </select>
   </div>
-  </div >
+
+  <div className="RX-eye-row-select">
+  <select id="OSSPH" defaultValue="PL/0" onChange={onRXChange}>
+  <option value="0">0</option>
+  <option value="0.10">0.10</option>
+  <option value="0.20">0.20</option>
+  <option value="0.30">0.30</option>
+  <option value="0.40">0.40</option>
+  <option value="0.50">0.50</option>
+  <option value="0.60">0.60</option>
+  <option value="0.70">0.70</option>
+  <option value="0.08">0.80</option>
+  <option value="0.90">0.90</option>
+  <option value="1.00">1.00</option>
+  <option value="1.10">1.10</option>
+  <option value="1.20">1.20</option>
+  <option value="1.30">1.30</option>
+  <option value="1.40">1.40</option>
+  <option value="1.50">1.50</option>
+  <option value="1.60">1.60</option>
+  <option value="1.70">1.70</option>
+  <option value="1.08">1.80</option>
+  <option value="1.90">1.90</option>
+  <option value="2.00">2.00</option>
+  <option value="3.10">3.10</option>
+  <option value="3.20">3.20</option>
+  <option value="3.30">3.30</option>
+  <option value="3.40">3.40</option>
+  <option value="3.50">3.50</option>
+  <option value="3.60">3.60</option>
+  <option value="3.70">3.70</option>
+  <option value="3.08">3.80</option>
+  <option value="3.90">3.90</option>
+  <option value="4.00">4.00</option>
+  <option value="5.10">5.10</option>
+  <option value="5.20">5.20</option>
+  <option value="5.30">5.30</option>
+  <option value="5.40">5.40</option>
+  <option value="5.50">5.50</option>
+  <option value="5.60">5.60</option>
+  <option value="5.70">5.70</option>
+  <option value="5.08">5.80</option>
+  <option value="5.90">5.90</option>
+  <option value="6.00">6.00</option>
+  <option value="7.10">7.10</option>
+  <option value="7.20">7.20</option>
+  <option value="7.30">7.30</option>
+  <option value="7.40">7.40</option>
+  <option value="7.50">7.50</option>
+  <option value="7.60">7.60</option>
+  <option value="7.70">7.70</option>
+  <option value="7.08">7.80</option>
+  <option value="7.90">7.90</option>
+  <option value="8.00">8.00</option>
+  <option value="9.10">9.10</option>
+  <option value="9.20">9.20</option>
+  <option value="9.30">9.30</option>
+  <option value="9.40">9.40</option>
+  <option value="9.50">9.50</option>
+  <option value="9.60">9.60</option>
+  <option value="9.70">9.70</option>
+  <option value="9.08">9.80</option>
+  <option value="9.90">9.90</option>
+  <option value="10.00">10.00</option>
+  <option value="10.10">10.10</option>
+</select>
+  </div>
+
+
+  </div>
 )
 
 Prescription.propTypes = {
@@ -621,7 +1107,8 @@ Prescription.propTypes = {
   PrismOS: PropTypes.array,
   RXname: PropTypes.string,
   getSavedRX: PropTypes.func.isRequired,
-  saveRX: PropTypes.func.isRequired
+  saveRX: PropTypes.func.isRequired,
+  onRXChange: PropTypes.func.isRequired
 }
 
 export default Prescription
