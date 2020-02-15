@@ -47,3 +47,10 @@ export function removeOrder(userId, orderId, i) {
     i
   }
 }
+
+export function handleChooseLensOption(lensOption) {
+  return {
+    type: "CHOOSE_LENS_OPTION",
+    lensOption
+  }
+}
