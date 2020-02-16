@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Prescription = ({ hasPrism, hasTwoPD, onRXChange }) => (
+const Prescription = ({ hasPrism, hasTwoPD, onRXChange, setRX }) => (
   <div>
     <div>Add Prescription</div>
     <form>
@@ -1565,7 +1565,8 @@ Prescription.propTypes = {
   RXname: PropTypes.string,
   getSavedRX: PropTypes.func.isRequired,
   saveRX: PropTypes.func.isRequired,
-  onRXChange: PropTypes.func.isRequired
+  onRXChange: PropTypes.func.isRequired,
+  setRX: PropTypes.func.isRequired
 }
 
 export default Prescription

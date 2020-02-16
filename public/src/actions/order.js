@@ -48,9 +48,30 @@ export function removeOrder(userId, orderId, i) {
   }
 }
 
-export function handleChooseLensOption(lensOption) {
+export function handleChooseLensOption(lensOptions) {
   return {
     type: "CHOOSE_LENS_OPTION",
-    lensOption
+    lensOptions
+  }
+}
+
+export function handleChooseLensMaterial(lensMaterial) {
+  return {
+    type: "CHOOSE_LENS_MATERIAL",
+    lensMaterial
+  }
+}
+
+export function handleChooseLensType(lensType) {
+  return {
+    type: "CHOOSE_LENS_TYPE",
+    lensType
+  }
+}
+
+export function handleChooseLensUpgrades(lensUpgrades) {
+  return {
+    type: "CHOOSE_LENS_UPGRADES",
+    lensUpgrades
   }
 }
