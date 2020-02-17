@@ -36,11 +36,7 @@ const Order = ({ orderStep, handleOrderStepChange, addOrder, removeOrder }) => {
 Order.propTypes = {
   orderStep: PropTypes.number,
   userId: PropTypes.string,
-  OD: PropTypes.array,
-  OS: PropTypes.array,
-  PD: PropTypes.array,
-  RXname: PropTypes.string,
-  add: PropTypes.string,
+  RX: PropTypes.object,
   orders: PropTypes.array,
   addOrder: PropTypes.func.isRequired,
   removeOrder: PropTypes.func.isRequired,

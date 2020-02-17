@@ -1558,15 +1558,13 @@ Prescription.propTypes = {
   OSPrismVert: PropTypes.string,
   OSPrismVertDirection: PropTypes.string,
   RX: PropTypes.array,
-  OD: PropTypes.array,
-  OS: PropTypes.array,
   PrismOD: PropTypes.array,
   PrismOS: PropTypes.array,
   RXname: PropTypes.string,
-  getSavedRX: PropTypes.func.isRequired,
-  saveRX: PropTypes.func.isRequired,
-  onRXChange: PropTypes.func.isRequired,
-  setRX: PropTypes.func.isRequired
+  getRX: PropTypes.func.isRequired,
+  postRX: PropTypes.func.isRequired,
+  setRXState: PropTypes.func.isRequired,
+  onRXChange: PropTypes.func.isRequired
 }
 
 export default Prescription

@@ -8,9 +8,39 @@ export function changeOrderStep(orderStep) {
   }
 }
 
-export function postOrder({ userId, OD, OS, PD, RXname, add, lensType, lensMaterial, lensOptions, lensUpgrades }) {
+// export function updateUserOrders({ dateOrdered, orderId, orderStatus, totalCost }) {
+//   return {
+//     type: "UPDATE_USER_ORDER",
+//     orderStep
+//   }
+// }
+
+export function deleteOrder(userId, orderId, i) {
+  // return (dispatch) => {
+  //   return axios.DELETE("http://localhost:5001/robertson-optometry/us-central1/api", { dateOrdered, orderStatus, totalCost, userId, RX, lensType, lensMaterial, lensOptions, lensUpgrades })
+  //     .then(response => {
+  //       dispatch(addOrder(response.data))
+  //     })
+  //     .catch(error => {
+  //       console.log("error posting order", error);
+  //     });
+  // };
+}
+export function removeOrder(userId, orderId, i) {
+  return {
+    type: "REMOVE_ORDER",
+    userId,
+    orderId,
+    i
+  }
+}
+
+export function postOrder({ userId, RX, lensType, lensMaterial, lensOptions, lensUpgrades }) {
+  let dateOrdered = Date.now();
+  let orderStatus = "Processing";
+  let totalCost = "$$$";
   return (dispatch) => {
-    return axios.post("http://localhost:5001/robertson-optometry/us-central1/api", { userId, OD, OS, PD, RXname, add, lensType, lensMaterial, lensOptions, lensUpgrades })
+    return axios.post("http://localhost:5001/robertson-optometry/us-central1/api", { dateOrdered, orderStatus, totalCost, userId, RX, lensType, lensMaterial, lensOptions, lensUpgrades })
       .then(response => {
         dispatch(addOrder(response.data))
       })
@@ -25,12 +55,11 @@ export function addOrder(data) {
     type: "ADD_ORDER",
     payload: {
       _id: data._id,
+      dateOrdered: data.dateOrdered, 
+      orderStatus: data.orderStatus, 
+      totalCost: data.totalCost, 
       userId: data.userId,
-      OD: data.OD,
-      OS: data.OS,
-      PD: data.PD,
-      RXname: data.RXname,
-      add: data.add,
+      RX: data.RX,
       lensType: data.lensType,
       lensMaterial: data.lensMaterial,
       lensOptions: data.lensOptions,
@@ -39,18 +68,11 @@ export function addOrder(data) {
   }
 }
 
-export function removeOrder(userId, orderId, i) {
-  return {
-    type: "REMOVE_ORDER",
-    userId,
-    orderId,
-    i
-  }
-}
 
-export function handleChooseLensOption(lensOptions) {
+
+export function handleChooseLensOptions(lensOptions) {
   return {
-    type: "CHOOSE_LENS_OPTION",
+    type: "CHOOSE_LENS_OPTIONS",
     lensOptions
   }
 }

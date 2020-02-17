@@ -1,38 +1,64 @@
-// import axios from "axios";
+import axios from "axios";
 
-// export const getRX(){
-//     return(dispatch)=>{
-//         return axios.get("http://localhost:5001/robertson-optometry/us-central1/api/").then((response)=>{
-//             dispatch(loadRX(response.data));
-//         })
-//     }
-// }
+export function getRX(){
+    return(dispatch)=>{
+        return axios.get("http://localhost:5001/robertson-optometry/us-central1/api/").then((response)=>{
+            dispatch(loadRX(response.data));
+        })
+    }
+}
 
-// export const loadRX(RX){
-//   console.log(RX)
-//     return{
-//         type:"LOAD_RX",
-//         RX
-//     }
-// }
+export function loadRX(RX){
+  console.log(RX)
+    return{
+        type:"LOAD_RX",
+        RX
+    }
+}
 
-// export const saveRX(userId, OD, OS, PD, RXname, add) {
-//   return {
-//     type: "SAVE_RX",
-//     userId,
-//     OD,
-//     OS,
-//     PD,
-//     RXname,
-//     add
-//   }
-// }
+export function postRX(){
+  return(dispatch)=>{
+      return axios.get("http://localhost:5001/robertson-optometry/us-central1/api/").then((response)=>{
+          dispatch(loadRX(response.data));
+      })
+  }
+}
 
-// export const removeRX(userId, RXname, i) {
-//   return {
-//     type: "REMOVE_RX",
-//     userId,
-//     RXname,
-//     i
-//   }
-// }
+export function setRXState(ODSPH, ODCLY, ODAXIS, OSSPH, OSCLY, OSAXIS, PD, ODPD, OSPD, ODadd, OSadd, ODPrismHor, ODPrismHorDirection, ODPrismVert, ODPrismVertDirection, OSPrismHor, OSPrismHorDirection, OSPrismVert, OSPrismVertDirection, PrismOD, PrismOS, RXname) {
+  return {
+    type: "SAVE_RX",
+    ODSPH,
+    ODCLY,
+    ODAXIS,
+    OSSPH,
+    OSCLY,
+    OSAXIS,
+    PD,
+    ODPD,
+    OSPD,
+    ODadd,
+    OSadd,
+    ODPrismHor,
+    ODPrismHorDirection,
+    ODPrismVert,
+    ODPrismVertDirection,
+    OSPrismHor,
+    OSPrismHorDirection,
+    OSPrismVert,
+    OSPrismVertDirection,
+    PrismOD,
+    PrismOS,
+    RXname
+  }
+}
+
+
+
+export function removeRX(userId, RXname, i) {
+  return {
+    type: "REMOVE_RX",
+    userId,
+    RXname,
+    i
+  }
+}
