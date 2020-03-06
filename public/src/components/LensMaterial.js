@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { handleChooseLensMaterial } from '../actions/order.js'
 
-const LensMaterial = ({lensMaterial, handleChooseLensMaterial}) => (
+const LensMaterial = ({lensMaterial}) => (
   <div>
     <div>Choose Lens Material</div>
     <div className="lens-option" id="CR39" onClick={handleChooseLensMaterial}>CR39
@@ -24,7 +25,6 @@ const LensMaterial = ({lensMaterial, handleChooseLensMaterial}) => (
 
 LensMaterial.propTypes = {
   lensMaterial: PropTypes.string,
-  handleChooseLensMaterial: PropTypes.func.isRequired
 }
 
 export default LensMaterial

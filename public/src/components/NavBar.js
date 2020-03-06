@@ -28,7 +28,7 @@ const NavBar = ({ signout, auth }) => (
 
 function mapStateToProps(state) {
   return {
-    auth: state.firebaseReducer.auth
+    auth: state.firebase.auth
   };
 }
 

@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { handleChooseLensUpgrades } from '../actions/order.js'
 
-const LensUpgrades = ({handleChooseLensUpgrades}) => (
+const LensUpgrades = ({lensUpgrades}) => (
   <div>
     <div>Lens Upgrades</div>
     <div className="lens-option" id="Anti-Reflective Coating" onClick={handleChooseLensUpgrades}>Anti-Reflective Coating
@@ -18,7 +19,6 @@ const LensUpgrades = ({handleChooseLensUpgrades}) => (
 
 LensUpgrades.propTypes = {
   lensUpgrades: PropTypes.array,
-  handleChooseLensUpgrades: PropTypes.func.isRequired
 }
 
 export default LensUpgrades
