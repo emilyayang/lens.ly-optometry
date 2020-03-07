@@ -4,15 +4,17 @@ import LensType from '../components/LensType.js';
 import LensMaterial from '../components/LensMaterial.js';
 import LensOptions from '../components/LensOptions.js';
 import LensUpgrades from '../components/LensUpgrades.js';
-import Prescription from '../components/Prescription.js';
+import Prescription from './Prescription.js';
 
+import { useFirebase } from 'react-redux-firebase'
+import { firebaseConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { postOrder, changeOrderStep } from '../actions/order.js'
+import { postOrder, incrementOrderStep, decrementOrderStep } from '../actions/order.js'
 
 class Order extends Component {
   constructor(props) {
     super(props)
-    this.getRX = this.getRX.bind(this)
   }
   componentDidMount() {
     this.getRX();
@@ -22,16 +24,8 @@ class Order extends Component {
 
   }
 
-  postOrder() {
-
-  }
-
-  // handleChange(nextSubreddit) {
-  //   this.props.dispatch(selectSubreddit(nextSubreddit))
-  //   this.props.dispatch(fetchPostsIfNeeded(nextSubreddit))
-  // }
   render() {
-    const { orderStep } = this.props;
+    let { orderStep, incrementOrderStep, decrementOrderStep } = this.props;
     return (
       <div>
         Order
@@ -43,30 +37,29 @@ class Order extends Component {
         {orderStep === 4 ? <LensUpgrades /> : null}
         {orderStep === 5 ? <Prescription /> : null}
         <button onClick={() => {
-          if (orderStep >= 1 && orderStep <= 4) {
-            let step = orderStep + 1
-            changeOrderStep(step)
-          }
-        }}>{">"}</button>
-        <button onClick={() => {
           if (orderStep >= 2 && orderStep <= 5) {
-            let step = orderStep - 1
-            changeOrderStep(step)
+            decrementOrderStep()
           }
         }}>{"<"}</button>
+        <button onClick={() => {
+          if (orderStep >= 1 && orderStep <= 4) {
+            incrementOrderStep()
+          }
+        }}>{">"}</button>
       </div>
     )
   }
 }
 
 Order.propTypes = {
+  orders: PropTypes.array,
   orderStep: PropTypes.number,
   userId: PropTypes.string,
   RX: PropTypes.object,
-  orders: PropTypes.array,
   // postOrder: PropTypes.func.isRequired,
   // removeOrder: PropTypes.func.isRequired,
-  // changeOrderStep: PropTypes.func.isRequired
+  incrementOrderStep: PropTypes.func.isRequired,
+  decrementOrderStep: PropTypes.func.isRequired
 }
 
 // Order.propTypes = {
@@ -81,16 +74,19 @@ Order.propTypes = {
 
 
 const mapStateToProps = state => ({
-  orders: state.orders,
-  orderStep: state.orderStep
+  // orders: state.orders,
+  orderStep: state.orderStep,
+  // userId: state.userId,
+  // RX: state.RX,
 })
 
 const mapDispatchToProps = dispatch => ({
-  addOrder: () => dispatch(addOrder()),
-  removeOrder: () => dispatch(removeOrder()),
-  changeOrderStep: (OrderStep) => {
-    dispatch(changeOrderStep(OrderStep));
-  }
+  incrementOrderStep: () => dispatch(incrementOrderStep()),
+  decrementOrderStep: () => dispatch(decrementOrderStep()),
 })
 
+// export default compose(
+//   connect(mapStateToProps, mapDispatchToProps),
+//   firebaseConnect()
+// )(Order);
 export default connect(mapStateToProps, mapDispatchToProps)(Order)

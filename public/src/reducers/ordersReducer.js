@@ -2,9 +2,9 @@ export function orders(state = [], action) {
   switch (action.type) {
     case 'ADD_ORDER':
       return [...state, {
-        dateOrdered: action.dateOrdered, 
-        orderStatus: action.orderStatus, 
-        totalCost: action.totalCost, 
+        dateOrdered: action.dateOrdered,
+        orderStatus: action.orderStatus,
+        totalCost: action.totalCost,
         userId: action.userId,
         RX: action.RX,
         lensType: action.lensType,
@@ -36,13 +36,14 @@ export function orders(state = [], action) {
 //   }
 //   return state;
 // }
-
 export function orderStep(state = 1, action) {
   switch (action.type) {
-    case 'CHANGE_ORDER_STEP':
-      return action.orderStep;
+    case 'INCREMENT_ORDER_STEP':
+      return state + 1
+    case 'DECREMENT_ORDER_STEP':
+      return state - 1
     default:
-      return state;
+      return state
   }
 }
 
@@ -60,7 +61,7 @@ export function lensOptions(state = [], action) {
 export function lensMaterial(state = '', action) {
   switch (action.type) {
     case 'CHOOSE_LENS_MATERIAL':
-    return action.lensMaterial;
+      return action.lensMaterial;
     default:
       return state;
   }
@@ -69,7 +70,7 @@ export function lensMaterial(state = '', action) {
 export function lensType(state = '', action) {
   switch (action.type) {
     case 'CHOOSE_LENS_TYPE':
-    return action.lensType;
+      return action.lensType;
     default:
       return state;
   }

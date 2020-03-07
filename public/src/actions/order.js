@@ -1,12 +1,42 @@
 //actions get dispatched but doesn't update state in store need reducer, every reducer will run at every dispatch
 import axios from "axios";
 
-export function changeOrderStep(orderStep) {
+export function incrementOrderStep() {
   return {
-    type: "CHANGE_ORDER_STEP",
-    orderStep
+    type: "INCREMENT_ORDER_STEP",
   }
 }
+export function decrementOrderStep() {
+  return {
+    type: "DECREMENT_ORDER_STEP",
+  }
+}
+
+// export function incrementOrderStep() {
+//   if (orderStep >= 1 && orderStep <= 4) {
+//     return {
+//       type: "INCREMENT_ORDER_STEP",
+//     }
+//   } else {
+//     return {
+//       type: "SAME_ORDER_STEP",
+
+//     }
+//   }
+// }
+
+// export function decrementOrderStep() {
+//   if (orderStep >= 2 && orderStep <= 5) {
+//     return {
+//       type: "DECREMENT_ORDER_STEP",
+//     }
+//   } else {
+//     return {
+//       type: "SAME_ORDER_STEP",
+
+//     }
+//   }
+// }
 
 // export function updateUserOrders({ dateOrdered, orderId, orderStatus, totalCost }) {
 //   return {
@@ -55,9 +85,9 @@ export function addOrder(data) {
     type: "ADD_ORDER",
     payload: {
       _id: data._id,
-      dateOrdered: data.dateOrdered, 
-      orderStatus: data.orderStatus, 
-      totalCost: data.totalCost, 
+      dateOrdered: data.dateOrdered,
+      orderStatus: data.orderStatus,
+      totalCost: data.totalCost,
       userId: data.userId,
       RX: data.RX,
       lensType: data.lensType,
@@ -70,10 +100,10 @@ export function addOrder(data) {
 
 
 
-export function handleChooseLensOptions(lensOptions) {
+export function handleChooseLensOptions() {
   return {
     type: "CHOOSE_LENS_OPTIONS",
-    lensOptions
+    lensOptions: e.target.id
   }
 }
 
