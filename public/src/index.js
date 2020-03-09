@@ -17,7 +17,8 @@ import { ReactReduxFirebaseProvider, firebaseReducer } from 'react-redux-firebas
 import App from './components/App'
 import authReducer from "./reducers/auth";
 import apiStatusReducer from "./reducers/apiStatus";
-import { orders, orderStep, RX } from './reducers/ordersReducer.js';
+import { orders, orderStep, lensOptions, lensMaterial, lensType, lensAR, lensPolish } from './reducers/ordersReducer.js';
+import { RXs } from './reducers/RXReducer.js';
 
 const history = createBrowserHistory()
 
@@ -32,13 +33,19 @@ firebase.initializeApp(firebaseConfig)
 firebase.firestore()
 
 const rootReducer = (history) => combineReducers({
-  firebaseReducer,
-  firestoreReducer,
+  firebase: firebaseReducer,
+  firestore: firestoreReducer,
   authReducer,
   apiStatusReducer,
   orders,
   orderStep,
-  RX,
+  lensOptions,
+  lensMaterial,
+  lensType,
+  lensAR,
+  lensPolish,
+  RXs,
+  // RX,
   router: connectRouter(history)
 })
 
@@ -53,13 +60,13 @@ function configureStore(preloadedState) {
       ),
     ),
   )
-
+  // Hot reloading
   if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
     module.hot.accept('./reducers', () => {
-      store.replaceReducer(rootReducer(history));
+      store.replaceReducer(createRootReducer(history));
     });
   }
-
   return store
 }
 
@@ -87,7 +94,9 @@ const render = () => {
 
 render()
 
+// Hot reloading
 if (module.hot) {
+  // Reload components
   module.hot.accept('./App', () => {
     render()
   })
