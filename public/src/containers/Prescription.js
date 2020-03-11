@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import { postOrder } from '../actions/order.js'
 import { postRX, getRXs } from '../actions/rx.js'
+import firebase from "../index";
+
 
 class Prescription extends Component {
   constructor(props) {
@@ -37,14 +39,24 @@ class Prescription extends Component {
     }
     this.handleCheck = this.handleCheck.bind(this)
     this.onRXChange = this.onRXChange.bind(this)
+    this.saveRX = this.saveRX.bind(this)
+    this.proceedToPostOrder = this.proceedToPostOrder.bind(this)
   }
 
   componentDidMount() {
-    this.props.getRXs();
+    // this.props.getRXs();
   }
 
-  getRX() {
+  saveRX(event) {
+    event.preventDefault();
+    let {ODSPH, ODCLY, ODAXIS, OSSPH, OSCLY, OSAXIS, PD, ODPD, OSPD, hasTwoPD, ODadd, OSadd, ODPrismHor, ODPrismHorDirection, ODPrismVert, ODPrismVertDirection, OSPrismHor, OSPrismHorDirection, OSPrismVert, OSPrismVertDirection, PrismOD, PrismOS, RXname} = this.state
+    this.props.postRX(ODSPH, ODCLY, ODAXIS, OSSPH, OSCLY, OSAXIS, PD, ODPD, OSPD, hasTwoPD, ODadd, OSadd, ODPrismHor, ODPrismHorDirection, ODPrismVert, ODPrismVertDirection, OSPrismHor, OSPrismHorDirection, OSPrismVert, OSPrismVertDirection, PrismOD, PrismOS, RXname);
+    // this.proceedToPostOrder();
+  }
 
+  proceedToPostOrder() {
+    let {RX, lensType, lensMaterial, lensOptions, lensAR, lensPolish} = this.props
+    this.props.postOrder(RX, lensType, lensMaterial, lensOptions, lensAR, lensPolish);
   }
 
   handleCheck(event) {
@@ -54,12 +66,18 @@ class Prescription extends Component {
 
   onRXChange(event) {
     const { id, value } = event.target;
-    this.setState({ [id]: value }, () => console.log(this.state));
+    this.setState({ [id]: value });
   }
 
   render() {
     let { hasPrism, hasTwoPD } = this.state;
-    let { postRX, getRXs, postOrder } = this.props;
+    let user = firebase.auth().currentUser;
+    let userId;
+    if (user != null) {
+      userId = user.uid;
+    } else {
+      userId = false
+    }
     return (
       <div>
         <div>Add Prescription</div>
@@ -222,7 +240,7 @@ class Prescription extends Component {
               <option value="+16.00">+16.00</option>
               <option value="BALANCE">BALANCE</option>
             </select>
-            <select id="ODCLY" defaultValue="PL/0" onChange={this.onRXChange} required>
+            <select id="ODCLY" defaultValue="SPH/BLANK/0" onChange={this.onRXChange} required>
               <option value="-12.00">-12.00</option>
               <option value="-11.75">-11.75</option>
               <option value="-11.50">-11.50</option>
@@ -686,7 +704,7 @@ class Prescription extends Component {
               <option value="+16.00">+16.00</option>
               <option value="BALANCE">BALANCE</option>
             </select>
-            <select id="OSCLY" defaultValue="PL/0" onChange={this.onRXChange} required>
+            <select id="OSCLY" defaultValue="SPH/BLANK/0" onChange={this.onRXChange} required>
               <option value="-12.00">-12.00</option>
               <option value="-11.75">-11.75</option>
               <option value="-11.50">-11.50</option>
@@ -1237,7 +1255,8 @@ class Prescription extends Component {
             </div>
           ) : (
               <div className="RX-eye-PD">
-                <select id="PD" defaultValue="" onChange={this.onRXChange} required>
+                <select id="PD" defaultValue="0" onChange={this.onRXChange} required>
+                  <option value="0">0</option>
                   <option value="50">50</option>
                   <option value="50.5">50.5</option>
                   <option value="51">51</option>
@@ -1589,11 +1608,8 @@ class Prescription extends Component {
               </div>
             </div>
           )}
-          <button onClick={() => {
-            if (orderStep >= 1 && orderStep <= 4) {
-              incrementOrderStep()
-            }
-          }}>{"Submit Order"}</button>
+          
+          <button onClick={this.saveRX}>{"Proceed to Checkout"}</button>
         </form>
       </div>
     )
@@ -1613,6 +1629,7 @@ Prescription.propTypes = {
   PD: PropTypes.string,
   ODPD: PropTypes.string,
   OSPD: PropTypes.string,
+  hasTwoPD: PropTypes.bool,
   ODadd: PropTypes.string,
   OSadd: PropTypes.string,
   ODPrismHor: PropTypes.string,
@@ -1629,10 +1646,21 @@ Prescription.propTypes = {
   getRXs: PropTypes.func.isRequired,
   postRX: PropTypes.func.isRequired,
   postOrder: PropTypes.func.isRequired,
+  lensMaterial: PropTypes.string,
+  lensOptions: PropTypes.string,
+  lensType: PropTypes.string,
+  lensAR: PropTypes.string,
+  lensPolish: PropTypes.string,
 }
 
 const mapStateToProps = state => ({
   RXs: state.RXs,
+  RX: state.RX,
+  lensMaterial: state.lensMaterial,
+  lensOptions: state.lensOptions,
+  lensType: state.lensType,
+  lensAR: state.lensAR,
+  lensPolish: state.lensPolish,
 })
 
 const mapDispatchToProps = dispatch => ({

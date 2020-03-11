@@ -10,7 +10,7 @@ import { useFirebase } from 'react-redux-firebase'
 import { firebaseConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { postOrder, incrementOrderStep, decrementOrderStep } from '../actions/order.js'
+import { incrementOrderStep, decrementOrderStep } from '../actions/order.js'
 
 class Order extends Component {
   constructor(props) {
@@ -54,10 +54,6 @@ class Order extends Component {
 Order.propTypes = {
   orders: PropTypes.array,
   orderStep: PropTypes.number,
-  userId: PropTypes.string,
-  RX: PropTypes.object,
-  // postOrder: PropTypes.func.isRequired,
-  // removeOrder: PropTypes.func.isRequired,
   incrementOrderStep: PropTypes.func.isRequired,
   decrementOrderStep: PropTypes.func.isRequired
 }
@@ -76,7 +72,6 @@ Order.propTypes = {
 const mapStateToProps = state => ({
   // orders: state.orders,
   orderStep: state.orderStep,
-  // userId: state.userId,
   // RX: state.RX,
 })
 
